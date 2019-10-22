@@ -5,12 +5,17 @@ package com.example.m_evolution.interfaces;
 public interface ILoginContract {
 
     interface View {
-        void sendCodeUpdate();
-        void showFailMessage(String str);
+        void setTextSendCode(String str);  //设置“发送验证码”的文字
+        void loginSucceed();  //成功登陆后进行的操作
+        void showMessage(String str);
+        void setLoginBusying();
+        void setLoginNotBusying();
     }
 
     interface Presenter{
         void sendCode(String userPhone);
+        void login(String userPhone, String userCode, String androidId);
+        void destroy();
     }
 
 }
